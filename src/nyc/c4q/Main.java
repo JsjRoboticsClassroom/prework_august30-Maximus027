@@ -20,5 +20,30 @@ public class Main {
         } else {
             System.out.println("The answer was " + hangman.getSecretWord());
         }
+        playAgain();
     }
+    
+    public static boolean playAgain() {
+        boolean runAgain = false;
+        boolean anotherOne = true;
+        do {
+            System.out.println( "Play again? " );
+            Scanner isPlayingAgain = new Scanner( System.in );
+            String userResponse = isPlayingAgain.next();
+            userResponse = userResponse.toLowerCase();
+
+            if ( userResponse.equals( "yes" ) || runAgain.equals( "y" ) ) {
+                runAgain = true;
+                return runAgain;
+            }
+            if ( runAgain.equals( "no" ) || runAgain.equals( "n" ) ) {
+                runAgain = false;
+                return runAgain;
+            } else {
+                System.out.println( "Not a valid answer. Try again." );
+                continue;
+            }
+        } while( anotherOne );
+            return runAgain;
+        }
 }
